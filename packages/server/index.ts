@@ -8,6 +8,9 @@ const port = process.env.PORT || 3000;
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World from the server package!');
 });
+app.get('/api/hello', (req: Request, res: Response) => {
+  res.json({message: 'Hello World from the server package!'});
+});
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
