@@ -7,11 +7,13 @@ const client = new OpenAI({
 
 export const openAIchatService = {
    async getChatResponseFromOpenAI(
+      instructions: string,
       prompt: string,
       conversationId: string
    ): Promise<string> {
       const response = await client.responses.create({
          model: 'gpt-4o-mini',
+         instructions: instructions,
          input: prompt,
          temperature: 0.2,
          previous_response_id:

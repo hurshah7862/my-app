@@ -7,10 +7,14 @@ const genAI = new GoogleGenerativeAI(
 
 export const googleAIchatService = {
    async getChatResponseFromGoogleAI(
+      instructions: string,
       prompt: string,
       conversationId: string
    ): Promise<string> {
-      const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+      const model = genAI.getGenerativeModel({
+         model: 'gemini-2.5-flash',
+         systemInstruction: instructions,
+      });
       let chat = conversationRepository.getLastResponseIdForGenAI(
          conversationId
       ) as ChatSession;
