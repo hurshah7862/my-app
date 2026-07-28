@@ -9,6 +9,6 @@ export default defineConfig({
       path: 'prisma/migrations',
    },
    datasource: {
-      url: 'sqlserver://85.10.211.22:1433;database=my-app;user=sa;password=Likeitornot1212;trustServerCertificate=true;',
+      url: process.env.DATABASE_URL,
    },
 });
